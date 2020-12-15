@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "5c7818db-c80c-4512-a3db-ac6faa9efe7d",
+		"name": "E-COMMERCE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AUTHORIZATION",
+			"item": [
+				{
+					"name": "User Authorization",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{$randomUserName}}",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "{{$randomLastName}}",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "{{$randomEmail}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "john.johnson",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "john.johnson",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/post",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"post"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Profile Data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/get?user_email={{$randomEmail}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "user_email",
+									"value": "{{$randomEmail}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "SEARCH-PRODUCT",
+			"item": [
+				{
+					"name": "Get Product by Product Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/get?product_name={{product}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "product_name",
+									"value": "{{product}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product by Category Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/get?category_name={{category}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"get"
+							],
+							"query": [
+								{
+									"key": "category_name",
+									"value": "{{category}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CART",
+			"item": [
+				{
+					"name": "Update Cart",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/put",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"put"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
